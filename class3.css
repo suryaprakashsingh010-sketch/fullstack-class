@@ -1,0 +1,43 @@
+header{
+    background-color: rgb(17, 94, 10);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 2rem;
+
+}
+#a{
+    color: aliceblue;
+    align-items: center;
+    flex-direction: column;
+    justify-items: auto;
+
+
+}
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;  
+    font-size: 20px;
+    font-weight: bold;
+}
+#about ,b{
+    align-items:center;
+    flex-direction: column;
+
+}
+#b{
+    color: rgb(1, 6, 9);
+    align-items: center;
+    flex-direction: column;
+    justify-items: auto;
+
+}
