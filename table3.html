@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Premium Student Timetable</title>
+
+    <style>
+
+        /* =========================
+           BASIC RESET
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f4f7fb;
+            color: #172033;
+            min-height: 100vh;
+        }
+
+
+        /* =========================
+           TOP NAVBAR
+        ========================== */
+
+        .topbar {
+            height: 75px;
+            background: #ffffff;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 45px;
+
+            border-bottom: 1px solid #e6eaf0;
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+
+        .brand-icon {
+            width: 43px;
+            height: 43px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #14213d;
+            color: #d4af37;
+
+            border-radius: 12px;
+
+            font-size: 22px;
+
+            box-shadow:
+                0 7px 20px rgba(20, 33, 61, 0.20);
+        }
+
+
+        .brand-text h2 {
+            font-size: 18px;
+            color: #14213d;
+            letter-spacing: 0.5px;
+        }
+
+
+        .brand-text span {
+            display: block;
+
+            margin-top: 2px;
+
+            color: #8993a4;
+
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+
+
+        .student-badge {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+
+            color: #566174;
+
+            font-size: 13px;
+        }
+
+
+        .online-dot {
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: #22c55e;
+
+            box-shadow:
+                0 0 0 4px rgba(34, 197, 94, 0.12);
+        }
+
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        .main {
+            width: 94%;
+            max-width: 1500px;
+
+            margin: 35px auto;
+        }
+
+
+        /* =========================
+           PAGE HEADER
+        ========================== */
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            margin-bottom: 25px;
+        }
+
+
+        .page-title h1 {
+            color: #14213d;
+
+            font-size: 30px;
+            font-weight: 700;
+
+            letter-spacing: -0.5px;
+        }
+
+
+        .page-title p {
+            color: #7b8494;
+
+            margin-top: 7px;
+
+            font-size: 14px;
+        }
+
+
+        .semester-box {
+            padding: 11px 17px;
+
+            background: #ffffff;
+
+            border: 1px solid #e5e9ef;
+
+            border-radius: 10px;
+
+            color: #536075;
+
+            font-size: 13px;
+
+            box-shadow:
+                0 5px 18px rgba(20, 33, 61, 0.05);
+        }
+
+
+        .semester-box strong {
+            color: #14213d;
+        }
+
+
+        /* =========================
+           STAT CARDS
+        ========================== */
+
+        .stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .stat-card {
+            background: #ffffff;
+
+            padding: 20px;
+
+            border-radius: 15px;
+
+            border: 1px solid #e7ebf1;
+
+            box-shadow:
+                0 8px 25px rgba(20, 33, 61, 0.05);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .stat-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 65px;
+            height: 65px;
+
+            right: -20px;
+            top: -20px;
+
+            background: #f4e7b8;
+
+            border-radius: 50%;
+        }
+
+
+        .stat-label {
+            color: #8791a1;
+
+            font-size: 12px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.8px;
+        }
+
+
+        .stat-value {
+            color: #14213d;
+
+            font-size: 24px;
+
+            font-weight: 700;
+
+            margin-top: 6px;
+        }
+
+
+        .stat-card:nth-child(2)::after {
+            background: #dbeafe;
+        }
+
+
+        .stat-card:nth-child(3)::after {
+            background: #dcfce7;
+        }
+
+
+        /* =========================
+           TABLE CARD
+        ========================== */
+
+        .table-card {
+            background: #ffffff;
+
+            border-radius: 18px;
+
+            border: 1px solid #e5e9ef;
+
+            padding: 10px;
+
+            box-shadow:
+                0 15px 40px rgba(20, 33, 61, 0.07);
+
+            overflow-x: auto;
+        }
+
+
+        /* =========================
+           TABLE
+        ========================== */
+
+        table {
+            width: 100%;
+
+            min-width: 1100px;
+
+            border-collapse: separate;
+
+            border-spacing: 6px;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        thead th {
+            height: 75px;
+
+            padding: 12px;
+
+            background: #14213d;
+
+            color: #ffffff;
+
+            text-align: center;
+
+            border-radius: 10px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        thead th:first-child {
+            width: 135px;
+
+            background: #0f1a30;
+        }
+
+
+        .day-name {
+            display: block;
+
+            font-size: 14px;
+
+            font-weight: 700;
+        }
+
+
+        .date {
+            display: block;
+
+            margin-top: 5px;
+
+            color: #d4af37;
+
+            font-size: 11px;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           TIME
+        ========================== */
+
+        .time {
+            width: 135px;
+
+            background: #eef2f7;
+
+            color: #344054;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            line-height: 1.6;
+
+            padding: 10px;
+        }
+
+
+        /* =========================
+           NORMAL CLASS
+        ========================== */
+
+        td:not(.time) {
+            height: 92px;
+
+            background: #f9fafc;
+
+            border: 1px solid #edf0f4;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            vertical-align: middle;
+
+            color: #596579;
+
+            font-size: 13px;
+
+            line-height: 1.65;
+
+            transition: all 0.25s ease;
+        }
+
+
+        /* =========================
+           HOVER
+        ========================== */
+
+        td:not(.time):hover {
+            background: #ffffff;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 20px rgba(20, 33, 61, 0.10);
+
+            border-color: #d4af37;
+        }
+
+
+        /* =========================
+           SUBJECT
+        ========================== */
+
+        .subject {
+            color: #172033;
+
+            font-weight: 700;
+
+            font-size: 14px;
+        }
+
+
+        .room {
+            color: #8993a4;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           ACTIVE TUESDAY
+        ========================== */
+
+        .active-day {
+            background:
+                linear-gradient(
+                    145deg,
+                    #14213d,
+                    #1c3158
+                ) !important;
+
+            color: #ffffff !important;
+
+            border: 1px solid #d4af37 !important;
+
+            box-shadow:
+                0 7px 20px rgba(20, 33, 61, 0.15);
+        }
+
+
+        .active-day .subject {
+            color: #ffffff;
+        }
+
+
+        .active-day .room {
+            color: #dce3ef;
+        }
+
+
+        .active-day:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 25px rgba(20, 33, 61, 0.22);
+        }
+
+
+        /* =========================
+           EMPTY
+        ========================== */
+
+        .empty {
+            color: #b0b8c5;
+
+            font-size: 18px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        .footer {
+            margin-top: 22px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #8a94a5;
+
+            font-size: 12px;
+        }
+
+
+        .footer strong {
+            color: #14213d;
+        }
+
+
+        /* =========================
+           SCROLLBAR
+        ========================== */
+
+        .table-card::-webkit-scrollbar {
+            height: 7px;
+        }
+
+
+        .table-card::-webkit-scrollbar-track {
+            background: #eef1f5;
+
+            border-radius: 20px;
+        }
+
+
+        .table-card::-webkit-scrollbar-thumb {
+            background: #14213d;
+
+            border-radius: 20px;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .topbar {
+                padding: 0 20px;
+            }
+
+
+            .main {
+                width: 96%;
+            }
+
+
+            .page-header {
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            .topbar {
+                height: 65px;
+
+                padding: 0 15px;
+            }
+
+
+            .brand-text h2 {
+                font-size: 15px;
+            }
+
+
+            .student-badge {
+                display: none;
+            }
+
+
+            .main {
+                margin-top: 22px;
+            }
+
+
+            .page-title h1 {
+                font-size: 24px;
+            }
+
+
+            .page-title p {
+                font-size: 12px;
+            }
+
+
+            .stats {
+                gap: 10px;
+            }
+
+
+            .stat-card {
+                padding: 16px;
+            }
+
+
+            .table-card {
+                padding: 5px;
+            }
+
+
+            table {
+                min-width: 1100px;
+            }
+
+
+            .footer {
+                flex-direction: column;
+
+                gap: 6px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         TOP BAR
+    ========================== -->
+
+    <header class="topbar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ▦
+            </div>
+
+            <div class="brand-text">
+
+                <h2>
+                    STUDENT PORTAL
+                </h2>
+
+                <span>
+                    ACADEMIC MANAGEMENT SYSTEM
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="student-badge">
+
+            <span class="online-dot"></span>
+
+            Academic Schedule
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="main">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+            <div class="page-title">
+
+                <h1>
+                    My Time Table
+                </h1>
+
+                <p>
+                    Your weekly academic schedule at a glance
+                </p>
+
+            </div>
+
+
+            <div class="semester-box">
+
+                <strong>
+                    Semester:
+                </strong>
+
+                2026
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             STATISTICS
+        ========================== -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    Academic Week
+                </div>
+
+                <div class="stat-value">
+                    Week 01
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    Working Days
+                </div>
+
+                <div class="stat-value">
+                    5 Days
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    Today's Classes
+                </div>
+
+                <div class="stat-value">
+                    4 Classes
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             TABLE
+        ========================== -->
+
+        <section class="table-card">
+
+            <table>
+
+
+                <!-- HEADER -->
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            TIME / DAY
+                        </th>
+
+
+                        <th>
+
+                            <span class="day-name">
+                                Monday
+                            </span>
+
+                            <span class="date">
+                                10.08.2026
+                            </span>
+
+                        </th>
+
+
+                        <th>
+
+                            <span class="day-name">
+                                Tuesday
+                            </span>
+
+                            <span class="date">
+                                11.08.2026
+                            </span>
+
+                        </th>
+
+
+                        <th>
+
+                            <span class="day-name">
+                                Wednesday
+                            </span>
+
+                            <span class="date">
+                                12.08.2026
+                            </span>
+
+                        </th>
+
+
+                        <th>
+
+                            <span class="day-name">
+                                Thursday
+                            </span>
+
+                            <span class="date">
+                                13.08.2026
+                            </span>
+
+                        </th>
+
+
+                        <th>
+
+                            <span class="day-name">
+                                Friday
+                            </span>
+
+                            <span class="date">
+                                14.08.2026
+                            </span>
+
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+
+                <!-- BODY -->
+
+                <tbody>
+
+
+                    <!-- 08:00 - 09:00 -->
+
+                    <tr>
+
+                        <td class="time">
+                            08:00 AM<br>
+                            —<br>
+                            09:00 AM
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                BCSC 0011
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+
+                        <td class="active-day">
+
+                            <div class="subject">
+                                BCSC 0011
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                BCSC 0011
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+
+                        <td class="empty">
+                            —
+                        </td>
+
+
+                        <td class="empty">
+                            —
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- 10:00 - 11:00 -->
+
+                    <tr>
+
+                        <td class="time">
+                            10:00 AM<br>
+                            —<br>
+                            11:00 AM
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                BCSE 1251
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+
+                        <td class="active-day">
+
+                            <div class="subject">
+                                BCSE 1251
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                BCSC 0007
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                BCSE 0807
+                            </div>
+
+                            <div>
+                                AB - V
+                            </div>
+
+                            <div class="room">
+                                Room - 218A
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                PQRH 0001
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- 11:00 - 12:00 -->
+
+                    <tr>
+
+                        <td class="time">
+                            11:00 AM<br>
+                            —<br>
+                            12:00 PM
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                BCSE 1251
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+
+                        <td class="active-day">
+
+                            <div class="subject">
+                                BCSE 1251
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+
+                        <td class="empty">
+                            —
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                BCSE 0807
+                            </div>
+
+                            <div>
+                                AB - V
+                            </div>
+
+                            <div class="room">
+                                Room - 218A
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                PQRH 0001
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- 01:00 - 02:00 -->
+
+                    <tr>
+
+                        <td class="time">
+                            01:00 PM<br>
+                            —<br>
+                            02:00 PM
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                BCSC 0007
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+
+                        <td class="active-day">
+
+                            <div class="subject">
+                                BCSC 0007
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+
+                        <td class="empty">
+                            —
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                PGDH 0001
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                BCSE 0281
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- 02:00 - 03:00 -->
+
+                    <tr>
+
+                        <td class="time">
+                            02:00 PM<br>
+                            —<br>
+                            03:00 PM
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                BCSE 1008
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+
+                        <td class="active-day">
+
+                            <div class="empty">
+                                —
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                BCSC 0806
+                            </div>
+
+                            <div>
+                                AB - II
+                            </div>
+
+                            <div class="room">
+                                Room - 5005
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                PGDH 0001
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                BCSE 0281
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- 03:00 - 04:00 -->
+
+                    <tr>
+
+                        <td class="time">
+                            03:00 PM<br>
+                            —<br>
+                            04:00 PM
+                        </td>
+
+
+                        <td class="empty">
+                            —
+                        </td>
+
+
+                        <td class="active-day">
+
+                            <div class="subject">
+                                BCSE 1008
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                BCSC 0806
+                            </div>
+
+                            <div>
+                                AB - II
+                            </div>
+
+                            <div class="room">
+                                Room - 5005
+                            </div>
+
+                        </td>
+
+
+                        <td class="empty">
+                            —
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                BCSE 1008
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+
+
+                    <!-- 09:00 - 10:00 -->
+
+                    <tr>
+
+                        <td class="time">
+                            09:00 AM<br>
+                            —<br>
+                            10:00 AM
+                        </td>
+
+
+                        <td class="empty">
+                            —
+                        </td>
+
+
+                        <td class="active-day">
+
+                            <div class="empty">
+                                —
+                            </div>
+
+                        </td>
+
+
+                        <td class="empty">
+                            —
+                        </td>
+
+
+                        <td>
+
+                            <div class="subject">
+                                BCSC 0011
+                            </div>
+
+                            <div>
+                                AB - IX
+                            </div>
+
+                            <div class="room">
+                                Room - 009
+                            </div>
+
+                        </td>
+
+
+                        <td class="empty">
+                            —
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
+        <div class="footer">
+
+            <div>
+                <strong>Academic Year:</strong>
+                2026
+            </div>
+
+            <div>
+                Timetable updated for current semester
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
