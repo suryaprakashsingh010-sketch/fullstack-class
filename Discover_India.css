@@ -1,0 +1,53 @@
+* {
+    margin: 0px;
+}
+
+header {
+    height: 100px;
+    padding: 45px;
+    padding-bottom: 0px;
+    text-align: center;
+    color: whitesmoke;
+    background-color: #1e3a5f;
+    border-bottom: 5px solid #f4a261;
+}
+
+header h1 {
+    margin: 0px;
+    font-size: 42px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+main {
+    width: 90%;
+    margin: 45px auto;
+}
+
+.intro {
+    width: 100%;
+    height: 100%;
+    padding: 25px;
+    background-color: white;
+    border: 2px solid #d9e2ec;
+
+}
+
+.intro h2 {
+ font-family: 32px;
+ color: rgb(3, 18, 13);
+
+}
+.intro p{
+    color: rgb(56, 47, 47);
+    line-height: 1.6;
+
+}
+.cards-section h1{
+    align-items: center;
+    
+
+
+}
