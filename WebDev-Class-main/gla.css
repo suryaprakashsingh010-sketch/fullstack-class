@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+}
+header{
+    width: 100%;
+}
+header>div{
+    display: flex;
+    justify-content: space-between;
+}
+#topHead{
+    background-color: antiquewhite;
+    padding: 5px 20px;
+}
+#topHead>div{
+    display: flex;
+    gap: 20px;
+    font-size: 15px;
+}
+#botHead{
+    background-color: bisque;
+    padding: 15px 30px;
+    font-size: 20px;
+}
+#botHead>nav{
+    display:flex;
+    gap: 20px;
+}
+#botHead>nav a{
+    text-decoration: none;
+}

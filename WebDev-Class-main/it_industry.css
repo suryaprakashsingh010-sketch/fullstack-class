@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    background-color: black;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+a{
+    color: white;
+}
+.p1{
+    color: white;
+    display: inline;
+}
+span{
+    color:  rgb(47, 47, 99);;
+    display: inline;
+}
+.a{
+    display:inline;
+}
+main{
+    background-color: #1E3A5F;
+}
+.hf{
+    display: inline;
+    color: white;
+}
+.hs{
+    display: inline;
+    color: rgb(7, 85, 85);
+}

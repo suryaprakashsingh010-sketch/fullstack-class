@@ -1,0 +1,12 @@
+#head{
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#xyz{
+    background-color: rgb(207, 201, 201);
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
