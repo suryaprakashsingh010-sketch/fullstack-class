@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+    <style>
+        /* =========================
+           RESET
+        ========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* =========================
+           BODY
+        ========================== */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            min-height: 100vh;
+        }
+
+        /* =========================
+           MAIN FORM CARD
+        ========================== */
+        #main {
+            width: 490px;
+            padding: 25px 20px;
+
+            background: white;
+
+            border-radius: 15px;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* =========================
+           HEADING
+        ========================== */
+        #main h2 {
+            color: #4caf50;
+
+            text-align: left;
+
+            margin-bottom: 25px;
+
+            font-size: 25px;
+        }
+
+        /* =========================
+           LABELS
+        ========================== */
+        label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-size: 16px;
+
+            font-weight: 500;
+
+            color: #333;
+        }
+
+        /* =========================
+           INPUTS & SELECT
+        ========================== */
+        input,
+        select {
+            width: 100%;
+
+            height: 38px;
+
+            padding: 8px 10px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 5px;
+
+            font-size: 14px;
+
+            outline: none;
+
+            margin-bottom: 18px;
+
+            transition: 0.3s;
+        }
+
+        /* =========================
+           INPUT FOCUS
+        ========================== */
+        input:focus,
+        select:focus {
+            border-color: #4caf50;
+
+            box-shadow:
+                0 0 5px rgba(76, 175, 80, 0.25);
+        }
+
+        /* =========================
+           SUBMIT BUTTON
+        ========================== */
+        button {
+            width: 100%;
+
+            height: 45px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #4caf50;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        /* =========================
+           BUTTON HOVER
+        ========================== */
+        button:hover {
+            background: #43a047;
+
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           BUTTON ACTIVE
+        ========================== */
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* =========================
+           MOBILE RESPONSIVE
+        ========================== */
+        @media (max-width: 550px) {
+            #main {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="main">
+
+        <h2>Registration Form</h2>
+
+        <form action="#" method="post">
+
+            <!-- First Name -->
+            <label for="firstName">First Name:</label>
+
+            <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="Enter your first name"
+                required
+            >
+
+
+            <!-- Last Name -->
+            <label for="lastName">Last Name:</label>
+
+            <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                placeholder="Enter your last name"
+                required
+            >
+
+
+            <!-- Email -->
+            <label for="email">Email:</label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+            <!-- Password -->
+            <label for="password">Password:</label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+            >
+
+
+            <!-- Re-type Password -->
+            <label for="rPassword">Re-type Password:</label>
+
+            <input
+                type="password"
+                id="rPassword"
+                name="rPassword"
+                placeholder="Re-enter your password"
+                required
+            >
+
+
+            <!-- Contact -->
+            <label for="contact">Contact:</label>
+
+            <input
+                type="tel"
+                id="contact"
+                name="contact"
+                placeholder="Enter your contact number"
+                required
+            >
+
+
+            <!-- Gender -->
+            <label for="gender">Gender:</label>
+
+            <select
+                id="gender"
+                name="gender"
+                required
+            >
+                <option value="male">Male</option>
+
+                <option value="female">Female</option>
+
+                <option value="other">Other</option>
+            </select>
+
+
+            <!-- Submit Button -->
+            <button type="submit">
+                Submit
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registration Form</title>
+
+    <style>
+
+        /* 1. Remove default spacing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* 2. Page */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+        }
+
+
+        /* 3. Form container */
+        .form-container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 25px;
+
+            background: white;
+
+            border-radius: 10px;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* 4. Heading */
+        h2 {
+            text-align: center;
+            color: green;
+            margin-bottom: 20px;
+        }
+
+
+        /* 5. Labels */
+        label {
+            display: block;
+            margin-bottom: 5px;
+
+            color: #333;
+            font-size: 16px;
+        }
+
+
+        /* 6. Input and Select */
+        input,
+        select,
+        textarea {
+            width: 100%;
+
+            padding: 10px;
+
+            margin-bottom: 15px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 5px;
+
+            font-size: 15px;
+        }
+
+
+        /* 7. Input focus */
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+
+            border-color: green;
+        }
+
+
+        /* 8. Radio and checkbox */
+        .radio-group input,
+        .checkbox-group input {
+            width: auto;
+
+            margin-right: 5px;
+        }
+
+
+        /* 9. Submit button */
+        button {
+            width: 100%;
+
+            padding: 12px;
+
+            background: green;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 5px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+        }
+
+
+        /* 10. Hover */
+        button:hover {
+            background: darkgreen;
+        }
+
+
+        /* 11. Button click */
+        button:active {
+            transform: scale(0.98);
+        }
+
+
+        /* 12. Mobile */
+        @media (max-width: 450px) {
+
+            .form-container {
+                width: 90%;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <div class="form-container">
+
+        <h2>Registration Form</h2>
+
+        <form>
+
+            <!-- First Name -->
+            <label for="first">First Name:</label>
+
+            <input
+                type="text"
+                id="first"
+                name="first"
+                placeholder="Enter first name"
+                required
+            >
+
+
+            <!-- Last Name -->
+            <label for="last">Last Name:</label>
+
+            <input
+                type="text"
+                id="last"
+                name="last"
+                placeholder="Enter last name"
+                required
+            >
+
+
+            <!-- Email -->
+            <label for="email">Email:</label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter email"
+                required
+            >
+
+
+            <!-- Password -->
+            <label for="password">Password:</label>
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter password"
+                required
+            >
+
+
+            <!-- Contact -->
+            <label for="contact">Contact:</label>
+
+            <input
+                type="tel"
+                id="contact"
+                name="contact"
+                placeholder="Enter contact number"
+            >
+
+
+            <!-- Date -->
+            <label for="dob">Date of Birth:</label>
+
+            <input
+                type="date"
+                id="dob"
+                name="dob"
+            >
+
+
+            <!-- Gender -->
+            <label>Gender:</label>
+
+            <div class="radio-group">
+
+                <input
+                    type="radio"
+                    name="gender"
+                    value="male"
+                >
+                Male
+
+                <input
+                    type="radio"
+                    name="gender"
+                    value="female"
+                >
+                Female
+
+            </div>
+
+            <br>
+
+
+            <!-- Course -->
+            <label for="course">Course:</label>
+
+            <select id="course" name="course">
+
+                <option value="">Select Course</option>
+
+                <option value="html">HTML</option>
+
+                <option value="css">CSS</option>
+
+                <option value="javascript">JavaScript</option>
+
+            </select>
+
+
+            <!-- Address -->
+            <label for="address">Address:</label>
+
+            <textarea
+                id="address"
+                name="address"
+                rows="4"
+                placeholder="Enter address"
+            ></textarea>
+
+
+            <!-- Terms -->
+            <div class="checkbox-group">
+
+                <input
+                    type="checkbox"
+                    id="terms"
+                    required
+                >
+
+                <label for="terms">
+                    I agree to the terms
+                </label>
+
+            </div>
+
+            <br>
+
+
+            <!-- Submit -->
+            <button type="submit">
+                Register
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

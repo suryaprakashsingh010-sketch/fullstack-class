@@ -1,0 +1,17 @@
+body{
+    background-color: aquamarine;
+}
+main{
+    width: 100vw;
+    height: 500px;
+    color: blue;
+    text-align: center
+}
+h1{
+    font-size:65px ;
+    transform: translateX(200px);
+    transition: transform 3s;
+}
+p{
+    font-size: 20px;
+}

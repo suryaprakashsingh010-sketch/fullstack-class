@@ -1,15 +1,19 @@
-* {
+body {
     margin: 0px;
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+
 }
 
 header {
-    height: 100px;
+    height: 180px;
     padding: 45px;
     padding-bottom: 0px;
     text-align: center;
     color: whitesmoke;
     background-color: #1e3a5f;
     border-bottom: 5px solid #f4a261;
+    box-sizing: border-box;
 }
 
 header h1 {
@@ -28,26 +32,82 @@ main {
 
 .intro {
     width: 100%;
-    height: 100%;
     padding: 25px;
     background-color: white;
     border: 2px solid #d9e2ec;
-
 }
 
-.intro h2 {
- font-family: 32px;
- color: rgb(3, 18, 13);
-
+.intro h2{
+    font-size: 32px;
+    color:#1e3a5f ;
 }
+
 .intro p{
-    color: rgb(56, 47, 47);
+    color:darkgray ;
     line-height: 1.6;
+}
+
+.cards-section{
+    width: 100%;
+}
+
+.cards-section h2{
+    width: 100%;
+    color:#1e3a5f;
+    font-size: 32px;
+    text-align: center;
+}
+
+.cards{
+    display: flex;
+    gap: 25px;
 
 }
-.cards-section h1{
-    align-items: center;
+.card{
+    border-top: 10px solid rgb(242, 121, 121);
+    border-bottom:2px solid #f4a261;
+    border-left: 2px solid #d9e2ec;
+    border-right: 2px solid #d9e2ec;
+    background-color: white;
+    padding: 30px;
+    border-radius: 2rem;
+    box-shadow: 2px 2px 2p  #f4a261 ;
+
+}
+.cards h3{
+    font-size: 25px;
+    color: rgb(13, 26, 37);
     
 
+}
+.cards p{
+    width: 80%;
+    font-size: 16px;
+    color: rgb(111, 99, 99);
+    line-height: 1.3;
+    margin-bottom: 30px;
+
+}
+
+.featured{
+    margin-top: 45px;
+    width: auto;
+    background-color: white;
+    border: 2px solid #d9e2ec;
+    padding: 25px;
+    color: white;
+    background-color: #264653;
+    order: 3px solid #2a9d8f;
+    border-radius: 1.5rem;
+
+
+}
+.featured h2{
+    font-size: 32px;
+
+}
+
+.featured p{
+    font-size: 18px;
 
 }

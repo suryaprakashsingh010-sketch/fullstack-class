@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>University Portal</title>
+
+
+    <style>
+
+        /* =====================================================
+           1. UNIVERSAL RESET
+           ===================================================== */
+
+        * {
+            /* Remove browser's default margin */
+            margin: 0;
+
+            /* Remove browser's default padding */
+            padding: 0;
+
+            /* Width/height will include padding and border */
+            box-sizing: border-box;
+        }
+
+
+        /* =====================================================
+           2. BODY
+           ===================================================== */
+
+        body {
+            /* Set the font for the whole page */
+            font-family: Arial, sans-serif;
+
+            /* Light background color */
+            background-color: #f5f5f5;
+        }
+
+
+        /* =====================================================
+           3. HEADER
+           ===================================================== */
+
+        header {
+            /* Keep header fixed while scrolling */
+            position: fixed;
+
+            /* Put header at the top */
+            top: 0;
+
+            /* Put header at the left */
+            left: 0;
+
+            /* Header takes full screen width */
+            width: 100%;
+
+            /* Header height */
+            height: 60px;
+
+            /* Header background */
+            background-color: #18233a;
+
+            /* Text color */
+            color: white;
+
+            /* Use flexbox */
+            display: flex;
+
+            /* Put title on left and nav on right */
+            justify-content: space-between;
+
+            /* Vertically center items */
+            align-items: center;
+
+            /* Left and right spacing */
+            padding: 0 20px;
+
+            /* Keep header above other elements */
+            z-index: 1000;
+        }
+
+
+        /* Header title */
+
+        header h2 {
+            /* Text size */
+            font-size: 20px;
+        }
+
+
+        /* =====================================================
+           4. HEADER NAVIGATION
+           ===================================================== */
+
+        header nav a {
+            /* Link text color */
+            color: white;
+
+            /* Remove underline */
+            text-decoration: none;
+
+            /* Space between links */
+            margin-left: 20px;
+
+            /* Link font size */
+            font-size: 16px;
+        }
+
+
+        /* Change link color when mouse is over it */
+
+        header nav a:hover {
+            color: #2df133;
+        }
+
+
+        /* =====================================================
+           5. HAMBURGER MENU BUTTON
+           ===================================================== */
+
+        .menu-btn {
+            /* Keep hamburger in fixed position */
+            position: fixed;
+
+            /* Distance from top */
+            top: 15px;
+
+            /* Distance from left */
+            left: 15px;
+
+            /* Hamburger size */
+            font-size: 25px;
+
+            /* Hamburger color */
+            color: white;
+
+            /* Show hand cursor */
+            cursor: pointer;
+
+            /* Put hamburger above sidebar/header */
+            z-index: 1100;
+
+            /* Hidden on desktop */
+            display: none;
+        }
+
+
+        /* =====================================================
+           6. CHECKBOX
+           ===================================================== */
+
+        #menu {
+            /* Hide checkbox visually */
+            display: none;
+        }
+
+
+        /* =====================================================
+           7. SIDEBAR
+           ===================================================== */
+
+        .sidebar {
+            /* Sidebar stays fixed on screen */
+            position: fixed;
+
+            /* Start below header */
+            top: 60px;
+
+            /* Start from left side */
+            left: 0;
+
+            /* Sidebar width */
+            width: 220px;
+
+            /* Full remaining screen height */
+            height: calc(100vh - 60px);
+
+            /* Sidebar background */
+            background-color: #18233a;
+
+            /* Space at top */
+            padding-top: 20px;
+
+            /* Makes movement smooth */
+            transition: left 0.4s ease;
+
+            /* Keep sidebar above main content */
+            z-index: 900;
+        }
+
+
+        /* Sidebar links */
+
+        .sidebar a {
+            /* Each link takes full row */
+            display: block;
+
+            /* Space inside link */
+            padding: 15px 20px;
+
+            /* Link color */
+            color: white;
+
+            /* Remove underline */
+            text-decoration: none;
+
+            /* Small separator line */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+
+        /* Sidebar hover effect */
+
+        .sidebar a:hover {
+            /* Change background when mouse is over link */
+            background-color: #263653;
+        }
+
+
+        /* =====================================================
+           8. MAIN CONTENT
+           ===================================================== */
+
+        main {
+            /* Leave space for desktop sidebar */
+            margin-left: 220px;
+
+            /* Space below fixed header and around content */
+            padding: 100px 40px 40px;
+
+            /* At least full screen height */
+            min-height: 100vh;
+
+            /* Main content background */
+            background-color: white;
+        }
+
+
+        /* Main heading */
+
+        main h1 {
+            /* Space below heading */
+            margin-bottom: 15px;
+        }
+
+
+        /* Main paragraph */
+
+        main p {
+            /* Gray paragraph text */
+            color: #555;
+
+            /* Improve readability */
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           9. MOBILE / RESPONSIVE DESIGN
+           ===================================================== */
+
+        @media (max-width: 768px) {
+
+            /* Show hamburger on smaller screens */
+
+            .menu-btn {
+                display: block;
+            }
+
+
+            /* Hide desktop navigation on mobile */
+
+            header nav {
+                display: none;
+            }
+
+
+            /* Make space for hamburger */
+
+            header h2 {
+                margin-left: 45px;
+            }
+
+
+            /* Hide sidebar outside screen */
+
+            .sidebar {
+                /* Move sidebar to the left */
+                left: -100%;
+
+                /* Sidebar covers whole mobile screen width */
+                width: 100%;
+
+                /* Full height below header */
+                height: calc(100vh - 60px);
+            }
+
+
+            /* =================================================
+               IMPORTANT:
+               When checkbox is checked,
+               bring sidebar onto screen.
+               ================================================= */
+
+            #menu:checked ~ .sidebar {
+                left: 0;
+            }
+
+
+            /* Main content uses full screen on mobile */
+
+            main {
+                /* Remove desktop sidebar spacing */
+                margin-left: 0;
+
+                /* Mobile-friendly padding */
+                padding: 100px 20px 30px;
+            }
+
+
+            /* Smaller heading on mobile */
+
+            main h1 {
+                font-size: 25px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header>
+
+        <!-- Website title -->
+        <h2>University Portal</h2>
+
+
+        <!-- Desktop navigation -->
+        <nav>
+
+            <a href="#">Home</a>
+
+            <a href="#">Courses</a>
+
+            <a href="#">Profile</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         HIDDEN CHECKBOX
+
+         This checkbox is used to open/close sidebar
+         without JavaScript.
+         ===================================================== -->
+
+    <input type="checkbox" id="menu">
+
+
+    <!-- =====================================================
+         HAMBURGER BUTTON
+
+         for="menu" connects this label to the checkbox.
+         Clicking ☰ checks/unchecks the checkbox.
+         ===================================================== -->
+
+    <label for="menu" class="menu-btn">
+        ☰
+    </label>
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+        <a href="#">Dashboard</a>
+
+        <a href="#">Courses</a>
+
+        <a href="#">Settings</a>
+
+        <a href="#">Logout</a>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main>
+
+        <h1>
+            Welcome to the University Dashboard
+        </h1>
+
+
+        <p>
+            This is your main content area.
+            Resize the window or use the hamburger
+            menu to see the responsive behavior.
+        </p>
+
+    </main>
+
+
+</body>
+
+</html>
