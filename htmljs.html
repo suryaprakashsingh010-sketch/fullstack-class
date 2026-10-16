@@ -89,13 +89,66 @@
     // console.log(nameedFunctionExp(10));
 
 
-    var arrowFun =()=>{
-       console.log("we are  working or Arraow function")
-    }
+    // var arrowFun =()=>{
+    //    console.log("we are  working or Arraow function")
+    // }
 
 
-    arrowFun();
+    // arrowFun();
 
+//   const implicitArrowFun = (num) => num / 10;
+
+//    console.log(implicitArrowFun(100)); 
+    
+//    console.log(implicitArrowFun(50));  
+     
+
+function displayContent(name, age) {
+    console.log({
+        Name: name,
+        Age: age
+    });
+}
+
+displayContent("Surya", 21);
+displayContent("Ram" , 62)
+
+
+
+
+const dis = (name, age) => ({
+    Name: name,
+    Age: age
+});
+
+console.log(dis("Surya", 21));
+
+
+
+
+function argumentUse() {
+    console.log(arguments);
+}
+
+argumentUse(10, 20, "Surya", true);
+
+var arguArrow = (...args) =>{
+    console.log({
+        name :args[0],
+        class:args [1],
+        details:args[2]
+    })
+}
+
+arguArrow('xyz', 'AE','jjt')
+
+
+
+function greet(nume = 'System') {
+    console.log('hellow Surya');
+}
+
+greet();
 
 
 </script>
