@@ -11,6 +11,7 @@
 </body>
 
 <h1> Welcome</h1>
+<butten onclick="greet()">Click me</butten>
 
 <!-- <button onclick="showMessage()">Click me</button>  -->
 
@@ -150,6 +151,36 @@ function greet(nume = 'System') {
 
 greet();
 
+
+
+
+
+var arr = [{
+    id:1,
+    name:"Surya",
+    age:20,
+    email:"Suryaprakashsingh010@.gmail.com",
+},
+{
+    id:2,
+    name:'Ram',
+    age :20,
+    email:'Ram.gmail.com',
+
+},
+{
+    id:3,
+    name: 'anand',
+    age:21,
+    email:'anandsingh@123.gmail.com'
+}]
+  arr.forEach((data)=>{
+    console.log("forEach name:", data.name,"age:" , data.age);
+  })
+
+  function greet(){
+    alert("welcome to my website Surya.com")
+  }
 
 </script>
 </html>
