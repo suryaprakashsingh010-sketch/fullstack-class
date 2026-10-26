@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/submit" method = "get" autocomplete="on">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Enter Your Name" required>
+        <button type = "submit">Submit Button</button>
+        <label for="fullName">mail:</label>
+        <input type="email" id="fullName" name="mail" placeholder="Enter Your mail" required>here is one more type hidden use for security purposes.
+
+        <input type="radio" name="gender" id="male" />
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="female">
+        <label for="female">Female</label>
+        <input type="radio" name="gender" id="other">
+        <label for="other">other</label>
+
+        <label for="city">select your city</label>
+        <select name="city" id="city" size="1">
+            <option value="">--Select city--</option>
+            <option value="delhi">Delhi</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="mathura">Mathura</option>
+        </select>
+        <br>
+        <br><br>
+
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" list="cities">
+
+        <datalist id="cities">
+            <option value="delhi">
+                <option value="mumbai">
+        </datalist>
+
+        <br>
+        <br>
+
+        <input type="file" accept=".pdf,.html">
+    </form>
+    <form action="">
+        <br>
+        <br>
+        <br><br><br><br><br>
+        <h1>STUDENT REGISTERATION</h1>
+        <fieldset>
+            <legend>Personal information</legend>
+            <label for="name">Full Name</label>
+            <input type="text" recquired placeholder="Enter Your Name" minlength="3" maxlength="50" id="name" name="name">
+            <br>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email"required placeholder="example@gmail.com" id="email" name="email">
+            <br><br>
+            <label for="password">Password :</label>
+            <input type="password" placeholder="iogo##q53A@lga" id="password">
+            <br><br>
+            <input type="range" min="0" max="100" >
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="email"required placeholder="example@gmail.com" id="email" name="email">
+            <br><br>
+            <label for="phnumber">Phone Number</label>
+            <input type="tel" required placeholder="9999999999999" id="phnumber"">
+            <br>
+            <br>
+            <p>Gender</p>
+            <input type="radio" id="male" name="gender">
+            <label for="male">male</label>
+            <input type="radio" id="male" name="gender">
+            <label for="female">female</label>
+            <input type="radio" id="male" name="gender">
+            <label for="other">other</label>
+        </fieldset>
+
+    </form>
+</body>
+</html>

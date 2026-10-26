@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    h1{
+        text-align: center;
+    }
+    .p{
+        text-align: center;
+    }
+    .a1{
+        background-color: #e4e7ea;
+        padding: 10px 0px 10px 10px;
+        margin-bottom: 10px;
+    }
+    .a2{
+        background-color: #e4e7ea;
+        padding: 10px 0px 10px 14px;
+        margin-bottom: 10px;       
+    }
+    .a3{
+        background-color: #e4e7ea;
+        padding: 10px 0px 10px 14px;
+        margin-bottom: 10px;       
+    }
+    .a4{
+        background-color: #e4e7ea;
+        padding: 10px 0px 10px 14px;
+        margin-bottom: 10px;       
+    }
+    .a5{
+        background-color: #e4e7ea;
+        padding: 10px 0px 10px 14px;
+        margin-bottom: 10px;       
+    }
+
+</style>
+<body>
+    <h1>HTML Learning Form</h1>
+    <p class="p"><strong>Explore and practice all important HTML concept in one place.</strong></p>
+    <br>
+    <div class="a1" >
+        <h3>1. Basic Structure & text</h3>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" placeholder="Alice Bob" required>
+        <br>
+        <br>
+        <label for="mail">Email_id:</label>
+        <input type="email" id="mail" placeholder="xyz@gmail.com">
+        <br>
+        <br>
+        <label for="password">Enter your password:</label>
+        <input type="password" required placeholder="xyz*&###289tqi">
+        <br>
+        <br>
+        <label for="dob">Date_of_birth:</label>
+        <input type="date" required>
+        <br>
+        <section>
+            <p><strong>Gender</strong></p>
+            <input type="radio" id="male" name="gender">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender">
+            <label for="female">Female</label>
+            <input type="radio" id="others" name="gender">
+            <label for="others">Male</label>
+        </section>
+        <br>
+        <label for="course">Choose your course:</label>
+        <select name="course" id="course">
+            <option value="">select course</option>
+            <option value="B.tech">B.tech</option>
+            <option value="AIML">AIML</option>
+            <option value="BSC">BSC</option>
+            <option value="Diploma">Diploma</option>
+            <option value="Biotech">Biotechnology</option>
+        </select>
+        <br>
+        <br>
+        <label for="intro">About Yourself</label>
+        <br>
+        <textarea name="inreo" id="intro" rows="10" cols="55" placeholder="Describe yourself here....."></textarea>
+    </div>
+    <div class="a2">
+        <h3>2.Lists</h3>
+        <br>
+        <ul> <strong>Choose from this:-</strong>
+            <li>Bombay</li>
+            <li>Pune</li>
+            <li>Delhi</li>
+            <li>Begaluru</li>
+            <li>Gurugram</li>
+        </ul>
+        <br>
+        <ol><strong>Hiearchy wise:-</strong>
+            <li>Gurugram</li>
+            <li>Delhi</li>
+            <li>Pune</li>
+            <li>Bombay</li>
+            <li>Bengaluru</li>
+        </ol>
+        <br>
+        <dl>
+            <dt>HTML:</dt>
+            <dd>Hyper Text Markup Language</dd>
+            <dt>CSS:</dt>
+            <dd>Cascading Style Sheet</dd>
+            <dt>JS:</dt>
+            <dd>Java Script</dd>
+        </dl>
+    </div>
+    <div class="a3">
+        <h3>3. Links,Media & OtherTags</h3>
+        <br>
+        <p><strong>Links:</strong></p>
+        <ul>
+           <li><a href="https://github.com/ShivamKumar5643" target="_blank" >Github </a></li> 
+            <li><a href="https://leetcode.com/u/Shivam_1499/" target="_blank" >Leetcode</a></li>
+        </ul>
+        <br>
+        <img src="/picofme-13.png" alt="Shivam" width="240px" height="240px">
+        <video src=""></video>
+        <address>
+            Written by Shivam Kumar<br>
+            Email: shivam@example.com<br>
+            Phone: +91 9876543210<br>
+            Mathura, Uttar Pradesh, India
+        </address>
+        
+    </div>
+    <div class="a4">
+        <h3>4. Tables</h3>
+        <br>
+        <table border="1">
+            <thead>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Course</th>
+            </thead>
+            <tbody>
+                <tr>
+                <td>Shivam</td>
+                <td>20</td>
+                <td>B.tech</td>
+                </tr>
+                <tr>
+                <td>Rahul</td>
+                <td>21</td>
+                <td>BSC</td>
+                </tr>
+                <tr>
+                <td>Aman</td>
+                <td>22</td>
+                <td>BSC</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="a5">
+        <h3>5.Forms and Input Elements</h3>
+        <br>
+        <label for="text">Text Input</label>
+        <input type="text" id="text" >
+        <label for="Password">Password</label>
+        <input type="password" id="Password">
+        <label for="email">Email</label>
+        <input type="email" id="email">
+        <label for="tel">Number</label>
+        <input type="number" id="tel">
+        <label for="date">Date</label>
+        <input type="date" id="date">
+        <label for="time">Time</label>
+        <input type="time" id="time">
+        <br><br>
+        <label for="file">File Upload</label>
+        <input type="file" id="file">
+        <label for="color">Choose color</label>
+        <input type="color" id="color">
+        <label for="search">Search</label>
+        <input type="search" id="search">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone">
+        <label for="url">URL</label>
+        <input type="url" id="url">
+        <br>
+        <label for="text">TextArea:</label>
+        <br>
+        <textarea name="text" id="text" rows="5" cols="15"></textarea>
+    </div>
+    <div class="a6">
+        <h3>Select,Checkbox & Radio</h3>
+        
+    </div>
+</body>
+</html>

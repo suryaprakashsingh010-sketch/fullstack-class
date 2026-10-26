@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        header{
+            width: 100vw;
+            padding:5px 20px;
+            background-color: rgb(238, 237, 235);
+        }
+        h2>span{
+            color: rgb(63, 63, 138);
+        }
+        header>nav{
+            display: flex;
+            justify-content: space-between;
+        }
+        button{
+            padding: 10px;
+            border-radius: 5%;
+            background-color:  rgb(63, 63, 138);
+        }
+        .button3{
+            background-color: white;
+            color: rgb(63, 63, 138);
+            border-color: rgb(63, 63, 138);
+            border-radius: 10%;
+            padding: 10px;
+        }
+        .div1>h1>span{
+            color: rgb(63, 63, 138);
+        }
+        .div2{
+            width: 50%;
+            padding: 50px;
+            display: inline;
+            position: relative;
+        }
+        img{
+            animation:float 3s ease-in-out infinite alternate;
+        }
+        @keyframes float{
+            0%{
+                transform:translateY(30px);
+            }
+            50%{
+                transform: translateY(15px);
+            }
+            100%{
+                transform:translateY(0px)
+            }
+        }
+        main>div>span{
+            background-color: bisque;
+            color: red;
+        }
+        .span1{
+            position: absolute;
+            animation:float 3s ease-in-out infinite alternate 2s;
+            top: 15px;
+            left: 0px;
+        }
+        .span2{
+            position: absolute;
+            animation:float 3s ease-in-out infinite alternate 2s;
+            top: 15px;
+            left: 0px;
+        }
+        .div1{
+            width: 50%;
+        }
+        main{
+            width: 100vw;
+            height: 50vh;
+            background-color: rgb(215, 215, 246);
+            padding:30px 30px;
+            display: flex;
+        }
+        img{
+            width: 550px;
+            height: 250px;
+            border-radius: 10%;
+        }
+        footer{
+            text-align: center;
+            padding: 20px;
+        }
+        .x{
+            gap: 25px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h2>Skill<span>Hub</span></h2>
+            <div class="x">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Courses</a>
+            <a href="#">Testimonials</a>
+            <a href="#">Contact</a>
+            </div>
+            <button>Get Started</button>
+        </nav>
+    </header>
+    <main>
+        <div class="div1">
+            <p>learn-build-grow</p>
+            <h1>Upgrade Your Skills</h1>
+            <h1>for a <span>Brighter Future</span></h1>
+            <br>
+            <p>SkillHub provides high-quality,industry-relvant courses to help you</p>
+            <p>learn,build real projects,and grow your career.</p>
+            <br>
+
+            <button>Explore Courses -></button>
+            <button class="button3">Watch video</button>
+        </div>
+        <div class="div2">
+            <img src="wolf.jpeg" alt="elephant">
+            <span class="span1">Learn</span>
+            <span class="span2">build</span>
+        </div>
+    </main>
+    <footer>
+        <h4>WHY CHOOSE US</h4>
+        <br>
+        <h2>EverythingYou Need to <span>Succeed</span></h2>
+        <br>
+        <p>
+            We provide the best learning experience with modern tools and real-wold projects.
+        </p>
+    </footer>
+</body>
+</html>

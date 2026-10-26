@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main{
+            margin:auto;
+            width:600px;
+            height:700px;
+            box-shadow:0 0 15px 2px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        article{
+            opacity: 0;
+            background-color: pink;
+            height: 100%;
+            width:100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 2s ease;
+        }
+        article>h1{
+            color: brown;
+            font-size:45px;
+            margin-bottom: 0px;
+        }
+        article>p{
+            color:red;
+            font-size: 25px;
+        }
+        section{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        section>div{
+            flex:1;
+            height:100%;
+            width: 100%;
+            background: linear-gradient(brown, red ,brown);
+            border: 2px solid black;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            transition: transform 3s ease;
+        }
+        section>div>a{
+            height: 20px;
+            width:20px;
+            display: inline-block;
+            border-radius: 50%;
+            background-color: goldenrod;
+            border: 2px solid black;
+        }
+        #main:target .door1{
+            transform: translateX(-100%);
+        }
+        #main:target .door2{
+            transform: translateX(+100%);
+        }
+        #main:target article{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <main id="main">
+        <article>
+            <h1>Happy Birthday !</h1>
+            
+            <p> wishing you a day full of happiness and joy!</p>
+        </article>
+        <section>
+            <div class="door1"></div>
+            <div class="door2">
+                <a href="#main"></a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

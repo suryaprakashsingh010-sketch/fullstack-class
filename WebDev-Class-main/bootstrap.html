@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BootStrap</title>
+    <style>
+        /*img{
+            filter:grayscale(100%);
+        }*/
+       /* img:hover{
+            filter:grayscale(0%);
+        }*/
+        img{
+            animation: fadeimg 1s infinite alternate;
+        }
+        @keyframes fadeimg{
+            0%{
+                filter:grayscale(100%);
+            }
+            25%{
+                filter:grayscale(75%)
+            }
+            50%{
+                filter: grayscale(50%);
+            }
+            75%{
+                filter: grayscale(25%);
+            }
+            100%{
+                filter: grayscale(0%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="/eagle.jpeg" alt="Eagle">
+</body>
+</html>

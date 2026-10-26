@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Form</title>
+    </head>
+    <body>
+
+        <form action="/submit">
+            <label for="fullName">Full Name : </label>
+            <input type="text" id="fullName" placeholder="Enter your name here" required>
+            <br>
+            <br>
+            <label for="mail">Email : </label>
+            <input type="email" id="mail" placeholder="Enter your mail here" required>
+            <br>
+            <br>
+            <section>
+            <label for="male">Male</label>
+            <input type="radio" id="male" name="gender">
+            <label for="Female">Female</label>
+            <input type="radio" id="Female" name="gender">
+            <label for="Other">Other</label>
+            <input type="radio" id="Other" name="gender">
+            </section>
+            <br>
+            <label for="city">Your City :</label>
+            <select id="city" name="city" size="1">
+                <option value="">--selecty your city--</option>
+                <option value="delhi">Delhi</option>
+                <option value="mumbai">Mumbai</option>
+            </select>
+            <br>
+            <br>
+            <label for="id">Adress proof :</label>
+            <input type="file" accept=".pdf" id="proof">
+        </form>
+        <form action="/submit">
+            <h1>Student Registeration Form :-</h1>
+            <fieldset>
+                <legend>Personal Information</legend>
+                <label for="FullName">Enter Your Name :-</label>
+                <input id="FullName" placeholder="Enter your name here" required name="name">
+                <br>
+                <br>
+                <label for="email">Enter your mail :-</label>
+                <input type="email" placeholder="Enter Your Mail here" required>
+                <br>
+                <br>
+                <label for="password">Enter Your Password Here :-</label>
+                <input type="password" id="password" placeholder="skhjf84$$##yriu@8">
+                <br>
+                <br>
+                <label for="Yourage">Enter your Age Here :-</label>
+                <input type="number" placeholder="Enter your age" required>
+                <br>
+                <br>
+                <label for="dob">Enter your DOB :-</label>
+                <input id="dob" type="date" >
+                <br>
+                <br>
+                <label for="phnumber">Phone Number :-</label>
+                <input type="tel" required  placeholder="9999999999999" id="phnumber">
+                <br>
+                <br>
+                <button type="submit">submit</button>
+            </fieldset>
+        </form>
+        <form action="/submit" method="POST">
+        <fieldset>
+        <legend>Contact Us</legend>
+        <label for="name">Name</label>
+        <input type="text" id="name"
+        name="name" required
+        placeholder="Jane Smith">
+        <label for="email">Email</label>
+        <input type="email" id="email"
+        name="email" required
+        placeholder="you@example.com">
+        <label for="message">Message</label>
+        <textarea id="message" name="message"
+        rows="4" minlength="10">
+        </textarea>
+        <button type="submit">Send</button>
+        <button type="reset">Clear</button>
+        </fieldset>
+        </form>
+
+
+        <label for="city">Choose your city:</label>
+
+<select id="city" name="city">
+    <option value="delhi">Delhi</option>
+    <option value="mumbai">Mumbai</option>
+    <option value="agra">Agra</option>
+    <option value="lucknow">Lucknow</option>
+</select>
+        
+    </body>
+</html>

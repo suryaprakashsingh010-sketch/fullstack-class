@@ -1,0 +1,24 @@
+body{
+    background-color: aquamarine;
+}
+main{
+    width: 100vw;
+    height: 500px;
+    color: blue;
+    text-align: center
+}
+h1{
+    font-size:65px ;
+    transform: translateX(200px);
+    transform: rotate(360deg);
+    transition: transform 3s ease 2s;
+    transform: scale(2);
+    transform: skew(60deg);
+    transition-property: transform;
+    transition-duration: 3s;
+    transition-timing-function: ease-in;
+    transition-delay: 12ms;
+}
+p{
+    font-size: 20px;
+}

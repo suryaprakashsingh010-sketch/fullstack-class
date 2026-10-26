@@ -1,0 +1,32 @@
+article{
+    width: 1000px;
+    display: flex;
+    background-color: bisque;
+    border: 2px solid red;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 30px;
+    gap: 30px;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 30px;
+}
+@media(max-width:430px){
+    
+}
+article div{
+    width: 400px;
+    
+}
+article div>h1{
+    font-size:40px ;
+    text-align: center;
+}
+article div>p{
+    font-size: 20px;
+    
+}
+img{
+    height: 400px;
+    width: 400px;
+}
