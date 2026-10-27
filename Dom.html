@@ -23,23 +23,58 @@
         nulla aut inventore adipisci quasi assumenda nisi. Autem officia facere nostrum ducimus, doloribus aut,
         suscipit delectus ex, dignissimos pariatur obcaecati rerum iusto officiis sunt veniam!
     </p>
-    <script>
-        var h1 = document.getElementById('heading');
-        console.log(h1);
-        var pList = document.getElementsByClassName('content');
-        console.log(pList);
+      
+        <ol id="List">
+            <li class="item">Java</li>
+            <li class="item">JavaScript</li>
+            <li class="item">Python</li>
+        </ol>
+       <a href="https://www.google.com/?zx=1793080206685">Google.com</a>
+
+    
+
+        <script>
+            var h1 = document.getElementById('heading');
+            console.log(h1);
+            var pList = document.getElementsByClassName('content');
+            console.log(pList);
 
 
-        // get element by tag name:
-        var pList = document.getElementsByTagName('p');
-        console.log(pList);
+            // get element by tag name:
+            var pList = document.getElementsByTagName('p');
+            console.log(pList);
 
-        const ele = document.querySelector('h1');
-        const ele1 = document.querySelector('#heading');
-        const ele2 = document.querySelector('.content');
-    //   git commit -m "Add Dom.html" git push origin main
+            const ele = document.querySelector('h1');
+            const ele1 = document.querySelector('#heading');
+            const ele2 = document.querySelector('.content');
 
-    </script>
+
+            var ol = document.querySelector('#List');
+            var listitem = ol.querySelector('.item');
+
+            console.log(listitem);
+
+            // h1.innerHTML = '<strong> <i> Surya.com </i><strong>';
+
+            // h1.innerText = '<div>  Hi i am surya</div>'
+            // h1.textContent = 'text'
+
+
+            /// How to Modify the Style
+            h1.style.color = 'red';
+            h1.style.backgroundColor = "yellow";
+            // h1.style['background-color'] = 'red';
+            h1.style.fontFamily = ''
+
+            var  anchor  = document.querySelector('a');
+
+
+
+
+
+
+
+        </script>
 </body>
 
 </html>
