@@ -1,0 +1,462 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wildlife Collection</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #070d1b;
+    --card: #111d32;
+    --primary: #3b82f6;
+    --cyan: #22d3ee;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 65px 5%;
+    overflow-x: hidden;
+}
+
+/* Background glow */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(130px);
+    opacity: .13;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::before {
+    background: #2563eb;
+    top: -100px;
+    left: -100px;
+}
+
+body::after {
+    background: #06b6d4;
+    bottom: -100px;
+    right: -100px;
+}
+
+/* Heading */
+.header {
+    text-align: center;
+    margin-bottom: 55px;
+    animation: headingReveal 1s ease both;
+}
+
+.header .subtitle {
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.header h1 {
+    font-size: clamp(32px, 5vw, 55px);
+    font-weight: 800;
+    margin: 15px 0;
+    background: linear-gradient(100deg, #fff, #60a5fa, #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.header p {
+    max-width: 620px;
+    margin: auto;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* Grid */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 32px;
+    perspective: 1200px;
+}
+
+/* Cards */
+.card {
+    position: relative;
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid rgba(148, 163, 184, .18);
+    border-radius: 23px;
+    transform-style: preserve-3d;
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease,
+        border-color .45s ease;
+    opacity: 0;
+    animation: cardReveal .8s ease forwards;
+}
+
+.card:nth-child(1) { animation-delay: .1s; }
+.card:nth-child(2) { animation-delay: .2s; }
+.card:nth-child(3) { animation-delay: .3s; }
+.card:nth-child(4) { animation-delay: .4s; }
+.card:nth-child(5) { animation-delay: .5s; }
+.card:nth-child(6) { animation-delay: .6s; }
+.card:nth-child(7) { animation-delay: .7s; }
+.card:nth-child(8) { animation-delay: .8s; }
+
+.card:hover {
+    border-color: var(--cyan);
+    box-shadow:
+        0 20px 50px rgba(37, 99, 235, .2),
+        0 0 25px rgba(34, 211, 238, .1);
+}
+
+/* Image */
+.image-box {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.card:hover .image-box img {
+    transform: scale(1.13);
+}
+
+.image-box::after {
+    content: "";
+    position: absolute;
+    inset: 40% 0 0;
+    background: linear-gradient(transparent, rgba(7,13,27,.4));
+    pointer-events: none;
+}
+
+/* Content */
+.card-content {
+    padding: 25px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 13px;
+    margin-bottom: 15px;
+    border-radius: 30px;
+    color: #93c5fd;
+    background: rgba(59,130,246,.12);
+    border: 1px solid rgba(96,165,250,.22);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.card-content h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    transition: color .3s ease;
+}
+
+.card:hover h2 {
+    color: var(--cyan);
+}
+
+.card-content p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.9;
+    min-height: 48px;
+    margin-bottom: 23px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.explore-btn {
+    color: #60a5fa;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.explore-btn:hover {
+    color: var(--cyan);
+    letter-spacing: 1px;
+}
+
+.arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #1e3a5f;
+    color: white;
+    display: grid;
+    place-items: center;
+    transition: all .4s ease;
+}
+
+.card:hover .arrow {
+    background: linear-gradient(135deg, #2563eb, #06b6d4);
+    transform: rotate(45deg) scale(1.12);
+}
+
+/* Entrance animations */
+@keyframes headingReveal {
+    from {
+        opacity: 0;
+        transform: translateY(-35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(45px) scale(.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .card-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    body {
+        padding: 40px 5%;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .image-box {
+        height: 260px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .card {
+        opacity: 1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <span class="subtitle">Discover the Wild</span>
+    <h1>Explore Wildlife Collection</h1>
+    <p>
+        Discover the beauty of nature through our exclusive
+        collection of magnificent animals and fascinating wildlife.
+    </p>
+</header>
+
+<main class="card-container">
+
+    <article class="card">
+        <div class="image-box">
+            <img src="image copy 3.png" alt="Bengal Tiger">
+        </div>
+        <div class="card-content">
+            <span class="tag">FEATURED</span>
+            <h2>Bengal Tiger</h2>
+            <p>Meet the majestic striped hunter, known for its power, beauty and incredible strength.</p>
+            <div class="card-footer">
+                <a href="#" class="explore-btn">Explore More →</a>
+                <span class="arrow">↗</span>
+            </div>
+        </div>
+    </article>
+
+    <article class="card">
+        <div class="image-box">
+            <img src="image copy.png" alt="African Lion">
+        </div>
+        <div class="card-content">
+            <span class="tag">POPULAR</span>
+            <h2>African Lion</h2>
+            <p>Discover the king of the jungle, famous for its majestic mane and powerful roar.</p>
+            <div class="card-footer">
+                <a href="#" class="explore-btn">Explore More →</a>
+                <span class="arrow">↗</span>
+            </div>
+        </div>
+    </article>
+
+    <article class="card">
+        <div class="image-box">
+            <img src="image copy 4.png" alt="Red Fox">
+        </div>
+        <div class="card-content">
+            <span class="tag">PREMIUM</span>
+            <h2>Red Fox</h2>
+            <p>Explore the clever and beautiful fox, admired for its agility and intelligence.</p>
+            <div class="card-footer">
+                <a href="#" class="explore-btn">Explore More →</a>
+                <span class="arrow">↗</span>
+            </div>
+        </div>
+    </article>
+
+    <article class="card">
+        <div class="image-box">
+            <img src="image copy 5.png" alt="Raccoon">
+        </div>
+        <div class="card-content">
+            <span class="tag">TRENDING</span>
+            <h2>Raccoon</h2>
+            <p>Discover this curious little creature with its distinctive facial markings.</p>
+            <div class="card-footer">
+                <a href="#" class="explore-btn">Explore More →</a>
+                <span class="arrow">↗</span>
+            </div>
+        </div>
+    </article>
+
+    <article class="card">
+        <div class="image-box">
+            <img src="image copy 6.png" alt="Wild Dog">
+        </div>
+        <div class="card-content">
+            <span class="tag">EXCLUSIVE</span>
+            <h2>Wild Dog</h2>
+            <p>Get to know an energetic and loyal animal with amazing social behaviour.</p>
+            <div class="card-footer">
+                <a href="#" class="explore-btn">Explore More →</a>
+                <span class="arrow">↗</span>
+            </div>
+        </div>
+    </article>
+
+    <article class="card">
+        <div class="image-box">
+            <img src="image copy 7.png" alt="Kingfisher">
+        </div>
+        <div class="card-content">
+            <span class="tag">BEAUTIFUL</span>
+            <h2>Kingfisher</h2>
+            <p>Admire this colourful bird with its brilliant feathers and remarkable fishing skills.</p>
+            <div class="card-footer">
+                <a href="#" class="explore-btn">Explore More →</a>
+                <span class="arrow">↗</span>
+            </div>
+        </div>
+    </article>
+
+    <article class="card">
+        <div class="image-box">
+            <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=800" alt="Beautiful Cat">
+        </div>
+        <div class="card-content">
+            <span class="tag">NEW ARRIVAL</span>
+            <h2>Wild Cat</h2>
+            <p>Discover the graceful movements and fascinating personality of the feline family.</p>
+            <div class="card-footer">
+                <a href="#" class="explore-btn">Explore More →</a>
+                <span class="arrow">↗</span>
+            </div>
+        </div>
+    </article>
+
+    <article class="card">
+        <div class="image-box">
+            <img src="image copy 8.png" alt="Beautiful Dog">
+        </div>
+        <div class="card-content">
+            <span class="tag">SPECIAL</span>
+            <h2>Friendly Dog</h2>
+            <p>Celebrate the loyalty, intelligence and companionship of our beloved four-legged friends.</p>
+            <div class="card-footer">
+                <a href="#" class="explore-btn">Explore More →</a>
+                <span class="arrow">↗</span>
+            </div>
+        </div>
+    </article>
+
+</main>
+
+<script>
+const cards = document.querySelectorAll(".card");
+
+// 3D mouse movement effect
+cards.forEach(card => {
+    card.addEventListener("mousemove", (event) => {
+        const rect = card.getBoundingClientRect();
+
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -5;
+        const rotateY = ((x - centerX) / centerX) * 5;
+
+        card.style.transform =
+            `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+    });
+});
+</script>
+
+</body>
+</html>
+
