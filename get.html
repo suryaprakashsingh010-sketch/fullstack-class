@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <h1>Todo List</h1>
+    <form>
+      <input type="text" id="input" placeholder="Enter the Task" required />
+      <button type="submit">Submit</button>
+       <button type="add">add</button>
+
+    </form>
+    <div id="taskCont"></div>
+  </body>
+  <script>
+    var form = document.querySelector("form");
+    var input = document.querySelector("#input");
+    var taskCont = document.querySelector("#taskCont");
+    var tasks = [];
+    var updateIndex =null;
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if(update)
+
+      tasks.push(input.value);
+      console.log(tasks);
+      input.value = "";
+      addEle();
+    });
+
+    function addEle() {
+      taskCont.innerHTML = "";
+
+      tasks.forEach((data, index) => {
+        taskCont.innerHTML += `<p>${data}</p> <button onclick="deleteEle(${index})" >Delete</button>`;
+      });
+    }
+
+    function deleteEle(index) {
+      tasks = tasks.filter((data, i) => i !== index);
+      addEle();
+    }
+
+    function updateEle(index){
+        input.value =texts
+    }
+  </script>
+</html>
